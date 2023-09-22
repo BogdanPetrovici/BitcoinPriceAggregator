@@ -5,11 +5,11 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.Api", "BitcoinPriceAggregator\BitcoinPriceAggregator.Api.csproj", "{014652EB-E1EE-4E7B-9343-8CD429AFC8A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.Web", "BitcoinPriceAggregator.Data\BitcoinPriceAggregator.Web.csproj", "{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.Web", "BitcoinPriceAggregator.Web\BitcoinPriceAggregator.Web.csproj", "{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.Web.Scrapers", "BitcoinPriceAggregator.Data.Scrapers\BitcoinPriceAggregator.Web.Scrapers.csproj", "{1A67E0EF-82AD-4341-899C-34056C5D84DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.Web.Scrapers", "BitcoinPriceAggregator.Web.Scrapers\BitcoinPriceAggregator.Web.Scrapers.csproj", "{1A67E0EF-82AD-4341-899C-34056C5D84DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.BL", "BitcoinPriceAggregator.Data.Aggregators\BitcoinPriceAggregator.BL.csproj", "{C217D7A2-C405-4252-93D3-2424E69B6247}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.BL", "BitcoinPriceAggregator.BL\BitcoinPriceAggregator.BL.csproj", "{C217D7A2-C405-4252-93D3-2424E69B6247}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
