@@ -12,3 +12,5 @@
 /BitcoinPriceAggregator.Web/bin
 /BitcoinPriceAggregator.Web.Scrapers/obj
 /BitcoinPriceAggregator.Web.Scrapers/bin
+/BitcoinPriceAggregator.Data/bin
+/BitcoinPriceAggregator.Data/obj
