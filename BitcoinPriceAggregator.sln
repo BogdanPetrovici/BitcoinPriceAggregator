@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.Api", "BitcoinPriceAggregator\BitcoinPriceAggregator.Api.csproj", "{014652EB-E1EE-4E7B-9343-8CD429AFC8A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinPriceAggregator.Api", "BitcoinPriceAggregator\BitcoinPriceAggregator.Api.csproj", "{014652EB-E1EE-4E7B-9343-8CD429AFC8A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.Data", "BitcoinPriceAggregator.Data\BitcoinPriceAggregator.Data.csproj", "{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.Data.Scrapers", "BitcoinPriceAggregator.Data.Scrapers\BitcoinPriceAggregator.Data.Scrapers.csproj", "{1A67E0EF-82AD-4341-899C-34056C5D84DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.Data.Aggregators", "BitcoinPriceAggregator.Data.Aggregators\BitcoinPriceAggregator.Data.Aggregators.csproj", "{C217D7A2-C405-4252-93D3-2424E69B6247}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{014652EB-E1EE-4E7B-9343-8CD429AFC8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{014652EB-E1EE-4E7B-9343-8CD429AFC8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{014652EB-E1EE-4E7B-9343-8CD429AFC8A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D1AD28-CF42-406C-A958-7A4CB3FFC3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A67E0EF-82AD-4341-899C-34056C5D84DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A67E0EF-82AD-4341-899C-34056C5D84DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A67E0EF-82AD-4341-899C-34056C5D84DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A67E0EF-82AD-4341-899C-34056C5D84DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C217D7A2-C405-4252-93D3-2424E69B6247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C217D7A2-C405-4252-93D3-2424E69B6247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C217D7A2-C405-4252-93D3-2424E69B6247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C217D7A2-C405-4252-93D3-2424E69B6247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,9 @@ using System.Globalization;
 
 namespace BitcoinPriceAggregator.Api.Annotations
 {
+    /// <summary>
+    /// Used for validating string parameters representing date and time in controllers
+    /// </summary>
     public class DateFormatAttribute : ValidationAttribute
     {
         private readonly string _format;
@@ -13,7 +16,12 @@ namespace BitcoinPriceAggregator.Api.Annotations
             _format = format;
         }
 
-        public override bool IsValid(object value)
+        /// <summary>
+        /// Checks whether the supplied value is a string and, if so, whether it represents a timestamp with the required formatting
+        /// </summary>
+        /// <param name="value">The value to be validated</param>
+        /// <returns>True if string representing properly formatted timestamp, false otherwise</returns>
+        public override bool IsValid(object? value)
         {
             if (value is not string dateStr)
             {

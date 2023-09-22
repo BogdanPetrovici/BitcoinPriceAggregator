@@ -1,5 +1,12 @@
+using BitcoinPriceAggregator.Data.Aggregators;
+using BitcoinPriceAggregator.Data.Interfaces;
+using BitcoinPriceAggregator.Data.Scrapers;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpClient<IPriceScraper, BitfinexPriceScraper>();
+builder.Services.AddHttpClient<IPriceScraper, BitstampPriceScraper>();
+builder.Services.AddTransient<IPriceAggregator, MeanPriceAggregator>();
 // Add services to the container.
 
 builder.Services.AddControllers();
