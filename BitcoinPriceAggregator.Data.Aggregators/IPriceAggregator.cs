@@ -1,5 +1,5 @@
 ﻿
-namespace BitcoinPriceAggregator.Data.Aggregators
+namespace BitcoinPriceAggregator.BL
 {
     public interface IPriceAggregator
     {

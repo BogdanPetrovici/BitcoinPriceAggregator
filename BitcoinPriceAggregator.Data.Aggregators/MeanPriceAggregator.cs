@@ -1,7 +1,7 @@
-﻿using BitcoinPriceAggregator.Data.Interfaces;
+﻿using BitcoinPriceAggregator.Web.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace BitcoinPriceAggregator.Data.Aggregators
+namespace BitcoinPriceAggregator.BL
 {
     /// <summary>
     /// Aggregates closing prices from supplied external data sources by averaging their vaules

@@ -1,6 +1,6 @@
-using BitcoinPriceAggregator.Data.Aggregators;
-using BitcoinPriceAggregator.Data.Interfaces;
-using BitcoinPriceAggregator.Data.Scrapers;
+using BitcoinPriceAggregator.BL;
+using BitcoinPriceAggregator.Web.Interfaces;
+using BitcoinPriceAggregator.Web.Scrapers;
 
 var builder = WebApplication.CreateBuilder(args);
 

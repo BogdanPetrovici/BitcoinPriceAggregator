@@ -1,5 +1,5 @@
 ﻿using BitcoinPriceAggregator.Api.Annotations;
-using BitcoinPriceAggregator.Data.Aggregators;
+using BitcoinPriceAggregator.BL;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;

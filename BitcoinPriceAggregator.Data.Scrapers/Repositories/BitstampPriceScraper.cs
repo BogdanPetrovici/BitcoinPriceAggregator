@@ -1,10 +1,10 @@
-﻿using BitcoinPriceAggregator.Data.Exceptions;
-using BitcoinPriceAggregator.Data.Interfaces;
+﻿using BitcoinPriceAggregator.Web.Exceptions;
+using BitcoinPriceAggregator.Web.Interfaces;
 using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace BitcoinPriceAggregator.Data.Scrapers
+namespace BitcoinPriceAggregator.Web.Scrapers
 {
     /// <summary>
     /// Scrapes closing prices from the Bitstamp external data provider
