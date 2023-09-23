@@ -6,10 +6,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BitcoinPriceAggregator.Data
 {
     [PrimaryKey("Date", "Hour")]
-    public class PricePoint
+    public class PricePointDbo
     {
-        public PricePoint() { }
-        public PricePoint(DateTime date, int hour, float price)
+        public PricePointDbo() { }
+        public PricePointDbo(DateTime date, int hour, float price)
         {
             Date = date;
             Hour = hour;

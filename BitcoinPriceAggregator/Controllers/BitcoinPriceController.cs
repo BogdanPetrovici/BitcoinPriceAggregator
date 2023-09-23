@@ -33,7 +33,7 @@ namespace BitcoinPriceAggregator.Api.Controllers
             try
             {
                 DateTime startHour = DateTime.ParseExact(startHourUtc, "yyyyMMddHHZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal);
-                float? persistedPrice = await _priceCache.GetPrice(startHour.Date, startHour.Hour);
+                float? persistedPrice = await _priceCache.GetPriceAsync(startHour.Date, startHour.Hour);
                 return Ok(persistedPrice);
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace BitcoinPriceAggregator.Api.Controllers
         /// <param name="endHourUtc">End of the interval as UTC date and hour</param>
         /// <returns>A list of floating point values representing the aggregated prices for each hour in the interval. If an hour doesn't have a recorded price, it will have a null value</returns>
         [HttpGet("btcusd", Name = "GetCachedPrices")]
-        public ActionResult<List<float?>> GetUsdPrices(
+        public ActionResult<IEnumerable<PricePoint>> GetUsdPrices(
             [Required]
             [DateFormat(format: "yyyyMMddHHZ")]
             string startHourUtc,
@@ -63,7 +63,8 @@ namespace BitcoinPriceAggregator.Api.Controllers
             {
                 DateTime startHour = DateTime.ParseExact(startHourUtc, "yyyyMMddHHZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal);
                 DateTime endHour = DateTime.ParseExact(endHourUtc, "yyyyMMddHHZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal);
-                return Ok(new List<float> { float.MinValue, float.MinValue, float.MinValue });
+                var pricePoints = _priceCache.GetPrices(startHour.Date, startHour.Hour, endHour.Date, endHour.Hour);
+                return Ok(pricePoints);
             }
             catch (Exception ex)
             {
