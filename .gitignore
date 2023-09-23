@@ -6,9 +6,11 @@
 /BitcoinPriceAggregator/obj
 /.vs
 /BitcoinPriceAggregator/BitcoinPriceAggregator.Api.csproj.user
-/BitcoinPriceAggregator.Data/obj
-/BitcoinPriceAggregator.Data.Aggregators/obj
-/BitcoinPriceAggregator.Data.Aggregators/bin
+/BitcoinPriceAggregator.BL/obj
+/BitcoinPriceAggregator.BL/bin
+/BitcoinPriceAggregator.Web/obj
+/BitcoinPriceAggregator.Web/bin
+/BitcoinPriceAggregator.Web.Scrapers/obj
+/BitcoinPriceAggregator.Web.Scrapers/bin
 /BitcoinPriceAggregator.Data/bin
-/BitcoinPriceAggregator.Data.Scrapers/obj
-/BitcoinPriceAggregator.Data.Scrapers/bin
+/BitcoinPriceAggregator.Data/obj

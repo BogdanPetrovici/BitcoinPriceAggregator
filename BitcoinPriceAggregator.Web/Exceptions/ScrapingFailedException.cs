@@ -1,4 +1,4 @@
-﻿namespace BitcoinPriceAggregator.Data.Exceptions
+﻿namespace BitcoinPriceAggregator.Web.Exceptions
 {
     /// <summary>
     /// Custom exception raised when scraping data from external data store fails.

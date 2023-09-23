@@ -1,11 +1,10 @@
-﻿using BitcoinPriceAggregator.Data.Exceptions;
-using BitcoinPriceAggregator.Data.Interfaces;
+﻿using BitcoinPriceAggregator.Web.Exceptions;
+using BitcoinPriceAggregator.Web.Interfaces;
 using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using System;
 
-namespace BitcoinPriceAggregator.Data.Scrapers
+namespace BitcoinPriceAggregator.Web.Scrapers
 {
     /// <summary>
     /// Scrapes closing prices from the Bitfinex external data provider
@@ -28,13 +27,15 @@ namespace BitcoinPriceAggregator.Data.Scrapers
         /// <summary>
         /// Scrapes the price for the given hour (on the given date) from the Bitfinex data store
         /// </summary>
-        /// <param name="startHourUtc">The date and time (in hours, UTC) for the price point</param>
+        /// <param name="date">The date (UTC) for the price point</param>
+        /// <param name="hour">The hour for the price point</param>
         /// <returns>A floating point number representing the price, or null, if the price was not available</returns>
         /// <exception cref="ScrapingFailedException">Thrown when retrieval of data point failed</exception>
-        public async Task<float?> GetPrice(DateTime startHourUtc)
+        public async Task<float?> GetPrice(DateTime date, int hour)
         {
-            long startTimestamp = ((DateTimeOffset)startHourUtc).ToUnixTimeMilliseconds();
-            long endTimestamp = ((DateTimeOffset)startHourUtc.AddHours(1)).ToUnixTimeMilliseconds();
+            DateTime startDate = date.AddHours(hour);
+            long startTimestamp = ((DateTimeOffset)startDate).ToUnixTimeMilliseconds();
+            long endTimestamp = ((DateTimeOffset)startDate.AddHours(1)).ToUnixTimeMilliseconds();
             string url = _endpointUrlTemplate.Replace("{startTimestamp}", startTimestamp.ToString())
                                              .Replace("{endTimestamp}", endTimestamp.ToString());
 
@@ -49,22 +50,22 @@ namespace BitcoinPriceAggregator.Data.Scrapers
             catch (RuntimeBinderException ex)
             {
                 _logger.LogError(_parsingExceptionMessage, ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
             catch (InvalidOperationException ex)
             {
                 _logger.LogError(string.Format(_retrievalErrorLogMessage, url), ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
             catch (HttpRequestException ex)
             {
                 _logger.LogError(string.Format(_retrievalErrorLogMessage, url), ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
             catch (TaskCanceledException ex)
             {
                 _logger.LogError(string.Format(_retrievalErrorLogMessage, url), ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
         }
 

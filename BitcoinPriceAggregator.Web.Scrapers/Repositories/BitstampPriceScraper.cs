@@ -1,10 +1,10 @@
-﻿using BitcoinPriceAggregator.Data.Exceptions;
-using BitcoinPriceAggregator.Data.Interfaces;
+﻿using BitcoinPriceAggregator.Web.Exceptions;
+using BitcoinPriceAggregator.Web.Interfaces;
 using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace BitcoinPriceAggregator.Data.Scrapers
+namespace BitcoinPriceAggregator.Web.Scrapers
 {
     /// <summary>
     /// Scrapes closing prices from the Bitstamp external data provider
@@ -27,12 +27,14 @@ namespace BitcoinPriceAggregator.Data.Scrapers
         /// <summary>
         /// Scrapes the price for the given hour (on the given date) from the Bitstamp data store
         /// </summary>
-        /// <param name="startHourUtc">The date and time (in hours, UTC) for the price point</param>
+        /// <param name="date">The date (UTC) for the price point</param>
+        /// <param name="hour">The hour for the price point</param>
         /// <returns>A floating point number representing the price, or null, if the price was not available</returns>
         /// <exception cref="ScrapingFailedException">Thrown when retrieval of data point failed</exception>
-        public async Task<float?> GetPrice(DateTime startHourUtc)
+        public async Task<float?> GetPrice(DateTime date, int hour)
         {
-            long timestamp = ((DateTimeOffset)startHourUtc).ToUnixTimeSeconds();
+            DateTime startDate = date.AddHours(hour);
+            long timestamp = ((DateTimeOffset)startDate).ToUnixTimeSeconds();
             string url = _endpointUrlTemplate.Replace("{startTimestamp}", timestamp.ToString());
             try
             {
@@ -45,22 +47,22 @@ namespace BitcoinPriceAggregator.Data.Scrapers
             catch (RuntimeBinderException ex)
             {
                 _logger.LogError(_parsingExceptionMessage, ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
             catch (InvalidOperationException ex)
             {
                 _logger.LogError(string.Format(_retrievalErrorLogMessage, url), ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
             catch (HttpRequestException ex)
             {
                 _logger.LogError(string.Format(_retrievalErrorLogMessage, url), ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
             catch (TaskCanceledException ex)
             {
                 _logger.LogError(string.Format(_retrievalErrorLogMessage, url), ex);
-                throw GetScrapingException(startHourUtc);
+                throw GetScrapingException(startDate);
             }
         }
 

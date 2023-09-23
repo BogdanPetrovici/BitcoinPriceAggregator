@@ -12,8 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BitcoinPriceAggregator.Data.Aggregators\BitcoinPriceAggregator.Data.Aggregators.csproj" />
-    <ProjectReference Include="..\BitcoinPriceAggregator.Data.Scrapers\BitcoinPriceAggregator.Data.Scrapers.csproj" />
+    <ProjectReference Include="..\BitcoinPriceAggregator.BL\BitcoinPriceAggregator.BL.csproj" />
+    <ProjectReference Include="..\BitcoinPriceAggregator.Data\BitcoinPriceAggregator.Data.csproj" />
+    <ProjectReference Include="..\BitcoinPriceAggregator.Web.Scrapers\BitcoinPriceAggregator.Web.Scrapers.csproj" />
+    <ProjectReference Include="..\BitcoinPriceAggregator.Web\BitcoinPriceAggregator.Web.csproj" />
   </ItemGroup>
 
 </Project>
