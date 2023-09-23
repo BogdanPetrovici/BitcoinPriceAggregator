@@ -1,21 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BitcoinPriceAggregator.BL\BitcoinPriceAggregator.BL.csproj" />
-    <ProjectReference Include="..\BitcoinPriceAggregator.Data\BitcoinPriceAggregator.Data.csproj" />
-    <ProjectReference Include="..\BitcoinPriceAggregator.Web.Scrapers\BitcoinPriceAggregator.Web.Scrapers.csproj" />
-    <ProjectReference Include="..\BitcoinPriceAggregator.Web\BitcoinPriceAggregator.Web.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BitcoinPriceAggregator.BL\BitcoinPriceAggregator.BL.csproj" />
+        <ProjectReference Include="..\BitcoinPriceAggregator.Data\BitcoinPriceAggregator.Data.csproj" />
+        <ProjectReference Include="..\BitcoinPriceAggregator.Web.Scrapers\BitcoinPriceAggregator.Web.Scrapers.csproj" />
+        <ProjectReference Include="..\BitcoinPriceAggregator.Web\BitcoinPriceAggregator.Web.csproj" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
 
 </Project>
