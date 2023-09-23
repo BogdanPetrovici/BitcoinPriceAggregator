@@ -1,12 +1,15 @@
 using BitcoinPriceAggregator.BL;
+using BitcoinPriceAggregator.Data;
 using BitcoinPriceAggregator.Web.Interfaces;
 using BitcoinPriceAggregator.Web.Scrapers;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddTransient<PriceAggregatorContext>();
+builder.Services.AddTransient<IPriceRepository, InMemoryRepository>();
 builder.Services.AddHttpClient<IPriceScraper, BitfinexPriceScraper>();
 builder.Services.AddHttpClient<IPriceScraper, BitstampPriceScraper>();
 builder.Services.AddTransient<IPriceAggregator, MeanPriceAggregator>();
+builder.Services.AddTransient<IPriceCache, AggregatedPriceCache>();
 // Add services to the container.
 
 builder.Services.AddControllers();

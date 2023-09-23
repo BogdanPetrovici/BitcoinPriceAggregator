@@ -11,12 +11,12 @@ namespace BitcoinPriceAggregator.Api.Controllers
     public class BitcoinPriceController : ControllerBase
     {
         private readonly ILogger<BitcoinPriceController> _logger;
-        private IPriceAggregator _priceAggregator;
+        private IPriceCache _priceCache;
 
-        public BitcoinPriceController(ILogger<BitcoinPriceController> logger, IPriceAggregator priceAggregator)
+        public BitcoinPriceController(ILogger<BitcoinPriceController> logger, IPriceCache priceCache)
         {
             _logger = logger;
-            _priceAggregator = priceAggregator;
+            _priceCache = priceCache;
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace BitcoinPriceAggregator.Api.Controllers
             try
             {
                 DateTime startHour = DateTime.ParseExact(startHourUtc, "yyyyMMddHHZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal);
-                float? aggregatedPrice = await _priceAggregator.GetAggregatedPrice(startHour);
-                return Ok(aggregatedPrice);
+                float? persistedPrice = await _priceCache.GetPrice(startHour.Date, startHour.Hour);
+                return Ok(persistedPrice);
             }
             catch (Exception ex)
             {

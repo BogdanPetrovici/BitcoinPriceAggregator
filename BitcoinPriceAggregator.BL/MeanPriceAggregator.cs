@@ -8,29 +8,30 @@ namespace BitcoinPriceAggregator.BL
     /// </summary>
     public class MeanPriceAggregator : IPriceAggregator
     {
-        private IEnumerable<IPriceScraper> _priceRepositories;
+        private IEnumerable<IPriceScraper> _priceScrapers;
         private ILogger _logger;
 
-        public MeanPriceAggregator(ILogger<MeanPriceAggregator> logger, IEnumerable<IPriceScraper> priceRepositories)
+        public MeanPriceAggregator(ILogger<MeanPriceAggregator> logger, IEnumerable<IPriceScraper> priceScrapers)
         {
-            _priceRepositories = priceRepositories;
+            _priceScrapers = priceScrapers;
             _logger = logger;
         }
 
         /// <summary>
         /// Gets the aggregated price from multiple external data sources
         /// </summary>
-        /// <param name="startHourUtc">The date and time (in hours, UTC) for the price point</param>
+        /// <param name="date">The date (UTC) for the price point</param>
+        /// <param name="hour">The hour for the price point</param>
         /// <returns>A floating point number representing the aggregated price, or null, if the price was not available in any of the external data stores</returns>
-        public async Task<float?> GetAggregatedPrice(DateTime startHourUtc)
+        public async Task<float?> GetAggregatedPrice(DateTime date, int hour)
         {
             float sum = 0;
             int priceCount = 0;
-            foreach (var repository in _priceRepositories)
+            foreach (var scraper in _priceScrapers)
             {
                 try
                 {
-                    var price = await repository.GetPrice(startHourUtc);
+                    var price = await scraper.GetPrice(date, hour);
                     if (price != null)
                     {
                         sum = sum + price.Value;
@@ -39,7 +40,7 @@ namespace BitcoinPriceAggregator.BL
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(string.Format("Could not retrieve price from external data source: {0}", repository.GetType().FullName), ex);
+                    _logger.LogWarning(string.Format("Could not retrieve price from external data source: {0}", scraper.GetType().FullName), ex);
                 }
             }
 

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BitcoinPriceAggregator.BL\BitcoinPriceAggregator.BL.csproj" />
+    <ProjectReference Include="..\BitcoinPriceAggregator.Data\BitcoinPriceAggregator.Data.csproj" />
     <ProjectReference Include="..\BitcoinPriceAggregator.Web.Scrapers\BitcoinPriceAggregator.Web.Scrapers.csproj" />
     <ProjectReference Include="..\BitcoinPriceAggregator.Web\BitcoinPriceAggregator.Web.csproj" />
   </ItemGroup>
