@@ -14,3 +14,5 @@
 /BitcoinPriceAggregator.Web.Scrapers/bin
 /BitcoinPriceAggregator.Data/bin
 /BitcoinPriceAggregator.Data/obj
+/BitcoinPriceAggregator.Data.Test/bin/Debug/net6.0
+/BitcoinPriceAggregator.Data.Test/obj

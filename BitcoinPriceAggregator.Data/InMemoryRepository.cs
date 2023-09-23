@@ -35,7 +35,7 @@ namespace BitcoinPriceAggregator.Data
                 _logger.LogError("An error occured while saving price date", ex);
                 throw new DataLayerException("An error ocurred while persisting price point to local database");
             }
-            catch(OperationCanceledException ex)
+            catch (OperationCanceledException ex)
             {
                 _logger.LogError("The insert operation was canceled", ex);
                 throw new DataLayerException("An error ocurred while persisting price point to local database");
