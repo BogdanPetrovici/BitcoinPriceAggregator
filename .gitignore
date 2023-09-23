@@ -20,3 +20,8 @@
 /BitcoinPriceAggregator.BL.Test/bin/Debug/net6.0
 /BitcoinPriceAggregator.Api.Test/bin/Debug/net6.0
 /BitcoinPriceAggregator.Api.Test/obj
+/BitcoinPriceAggregator.Api.Test/bin/Release/net6.0
+/BitcoinPriceAggregator.BL.Test/bin/Release/net6.0
+/BitcoinPriceAggregator.Data.Test/bin/Release/net6.0
+/BitcoinPriceAggregator/Properties/PublishProfiles
+/BitcoinPriceAggregator/.config
