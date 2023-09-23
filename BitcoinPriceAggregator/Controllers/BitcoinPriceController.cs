@@ -25,7 +25,12 @@ namespace BitcoinPriceAggregator.Api.Controllers
         /// </summary>
         /// <param name="startHourUtc">String representing the date and hour, in UTC</param>
         /// <returns>Successful response message with data point as serialized floating point number if no errors, internal server error response message otherwise</returns>
+        /// <response code="200">Returns the requested price value either from cache or from external data sources</response>
+        /// <response code="400">If the supplied date is not in the expected format (or not a date)</response>
         [HttpGet("btcusd/{startHourUtc}", Name = "GetSinglePrice")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Produces("application/json")]
         public async Task<ActionResult<float>> GetUsdPrice(
             [DateFormat(format: "yyyyMMddHHZ")]
             string startHourUtc)
@@ -50,7 +55,12 @@ namespace BitcoinPriceAggregator.Api.Controllers
         /// <param name="startHourUtc">Start of the time interval as UTC date and hour</param>
         /// <param name="endHourUtc">End of the interval as UTC date and hour</param>
         /// <returns>A list of floating point values representing the aggregated prices for each hour in the interval. If an hour doesn't have a recorded price, it will have a null value</returns>
+        /// <response code="200">Returns the requested price values from cache</response>
+        /// <response code="400">If the supplied date is not in the expected format (or not a date)</response>
         [HttpGet("btcusd", Name = "GetCachedPrices")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Produces("application/json")]
         public ActionResult<IEnumerable<PricePoint>> GetUsdPrices(
             [Required]
             [DateFormat(format: "yyyyMMddHHZ")]

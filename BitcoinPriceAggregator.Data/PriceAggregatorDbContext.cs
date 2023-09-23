@@ -4,7 +4,7 @@ namespace BitcoinPriceAggregator.Data
 {
     public class PriceAggregatorContext : DbContext
     {
-        public DbSet<PricePointDbo> Prices { get; set; }
+        public virtual DbSet<PricePointDbo> Prices { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
