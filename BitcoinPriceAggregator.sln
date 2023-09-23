@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.BL.Test", "BitcoinPriceAggregator.BL.Test\BitcoinPriceAggregator.BL.Test.csproj", "{7D6CB21D-B1FA-4200-90A4-AEFF12FB2963}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinPriceAggregator.Api.Test", "BitcoinPriceAggregator.Api.Test\BitcoinPriceAggregator.Api.Test.csproj", "{05765692-1944-4736-94F5-C3579B8D9343}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7D6CB21D-B1FA-4200-90A4-AEFF12FB2963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D6CB21D-B1FA-4200-90A4-AEFF12FB2963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D6CB21D-B1FA-4200-90A4-AEFF12FB2963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05765692-1944-4736-94F5-C3579B8D9343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05765692-1944-4736-94F5-C3579B8D9343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05765692-1944-4736-94F5-C3579B8D9343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05765692-1944-4736-94F5-C3579B8D9343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
